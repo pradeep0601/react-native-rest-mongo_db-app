@@ -1,0 +1,29 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "backend for smart shopping",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node node_modules/nodemon/bin/nodemon.js -- node_modules/babel-cli/bin/babel-node.js server.js"
+  },
+  "author": "Pradeep",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "moment": "^2.22.1",
+    "mongojs": "^2.5.0",
+    "mongoose": "^5.1.1",
+    "morgan": "^1.9.0"
+  },
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "eslint-config-rallycoding": "^3.2.0",
+    "nodemon": "^1.17.4"
+  }
+}
