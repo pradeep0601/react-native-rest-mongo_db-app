@@ -10,23 +10,21 @@ import React, { Component } from 'react';
 import {
   Platform,
   StyleSheet,
+  Button,
+  Image,
   Text,
   View
 } from 'react-native';
 
-import RESTApp from './components/RESTApp';
-import Movies from './components/Movies';
+import RegistrationForm from './components/RegistrationForm'
 
-type Props = {};
-export default class App extends Component<Props> {
+export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to Smart Shopping App!!
-        </Text>
-        <Text>Hello from react-native!!</Text>
-        <Movies></Movies>
+        <View style={styles.formContainer}>
+          <RegistrationForm />
+        </View>
       </View>
     );
   }
@@ -35,13 +33,16 @@ export default class App extends Component<Props> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: '#2c3e50',
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
+  logo: {
+    position: 'absolute',
+    width: 400,
+    height: 300
+},
+loginContainer:{
+  alignItems: 'center',
+  flexGrow: 1,
+  justifyContent: 'center'
+}
 });
