@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {RadioGroup, RadioButton} from 'react-native-flexi-radio-button'
+import {RadioGroup, RadioButton} from 'react-native-flexi-radio-button';
 import {
   Platform,
   StyleSheet,
@@ -20,8 +20,9 @@ export default class RegistrationForm extends Component {
           name: '',
           email: '',
           password: '',
-          isvegan: ''
+          isvegan: true
         }
+        this.onSelect = this.onSelect.bind(this)
       }
 
   /**
@@ -36,17 +37,19 @@ export default class RegistrationForm extends Component {
     }
     console.log(user);
 
-    onSelect = (index, value) => {
-      this.setState({
-        isvegan: (value === 'veg') ? true : false
-      })
-    }
-
     UserService.register(user).then(function(res,err) {
       if (res) {
         console.log(res);
       }
     });
+  }
+
+  onSelect = (index, value) => {
+    console.log(value);
+    this.setState({
+      isvegan: (value === 'veg') ? 'yes' : 'no'
+    })
+    console.log(this.state.isvegan);
   }
 
   render() {

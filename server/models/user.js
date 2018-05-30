@@ -9,7 +9,7 @@ const userSchema = new Schema({
         unique: true
     },
     password: String,
-    isvegan: boolean
+    isvegan: String
 });
 
 // export mongoose model

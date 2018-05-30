@@ -6,8 +6,8 @@ const UserService = {
     },
 
     register(user) {
-        console.log(`Customer Service:`, JSON.stringify(customer));
-        const URL = `http://10.77.250.41:3000/v1/shopping`;
+        console.log(`Customer Service:`, JSON.stringify(user));
+        const URL = `http://192.168.1.4:3000/`;
         return fetch(URL, {
             method: 'POST',
             headers: {
@@ -15,10 +15,10 @@ const UserService = {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                'email': user.email,
+                'username': user.email,
                 'name': user.name,
                 'password': user.password,
-                'isvegan': user.isvegan
+                'isvegan': `${user.isvegan}`
             })
         })
         .then((res) => res.json())

@@ -7,7 +7,7 @@ import User from '../models/user';
 
 const create = (req, res) => {
     const inputData = req.body;
-    if (!inputData.userName) {
+    if (!inputData.username) {
         return res.status(400).send({
             message: 'Invalid data format'
         });
@@ -19,6 +19,7 @@ const create = (req, res) => {
     //save the user into database
     userData.save()
     .then(data => {
+        console.log(data);
         res.send(data);
     })
     .catch(err => {
