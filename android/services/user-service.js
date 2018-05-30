@@ -7,7 +7,7 @@ const UserService = {
 
     register(user) {
         console.log(`Customer Service:`, JSON.stringify(user));
-        const URL = `http://192.168.1.4:3000/`;
+        const URL = `http://192.168.1.4:3000/v1/shopping`;
         return fetch(URL, {
             method: 'POST',
             headers: {
