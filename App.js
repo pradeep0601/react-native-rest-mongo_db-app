@@ -17,13 +17,14 @@ import {
 } from 'react-native';
 
 import RegistrationForm from './components/RegistrationForm'
+import Login from './components/Login'
 
 export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
         <View style={styles.formContainer}>
-          <RegistrationForm />
+          <Login />
         </View>
       </View>
     );

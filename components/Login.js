@@ -1,12 +1,28 @@
 import React, { Component } from 'react';
-import { View, Text, TextInput, TouchableOpacity,StyleSheet} from 'react-native';
+import { Alert, View, Text, TextInput, TouchableOpacity,StyleSheet} from 'react-native';
 
 export default class Login extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            username: '',
+            password: ''
+        }
+    }
+
+   onLogin() {
+    const { username, password } = this.state;
+
+    Alert.alert('Credentials', `${username} + ${password}`);
+   }
 
     render() {
         return (
             <View style={styles.container}>
-            <TextInput style = {styles.input} 
+            <TextInput style = {styles.input}
+               value={this.state.username}
+               onChangeText={(username) => this.setState({ username })}
                autoCapitalize="none" 
                onSubmitEditing={() => this.passwordInput.focus()} 
                autoCorrect={false} 
@@ -15,16 +31,18 @@ export default class Login extends Component {
                placeholder='Email or Mobile Num' 
                placeholderTextColor='rgba(225,225,225,0.7)'/>
 
-<TextInput style = {styles.input}   
+            <TextInput style = {styles.input}
               returnKeyType="go" 
+              value={this.state.password}
+              onChangeText={(password) => this.setState({ password })}
               ref={(input)=> this.passwordInput = input} 
               placeholder='Password' 
               placeholderTextColor='rgba(225,225,225,0.7)' 
               secureTextEntry/>
 
-<TouchableOpacity style={styles.buttonContainer}>
-             <Text  style={styles.buttonText}>LOGIN</Text>
-</TouchableOpacity> 
+            <TouchableOpacity onPress={this.onLogin.bind(this)} style={styles.buttonContainer}>
+                <Text  style={styles.buttonText}>LOGIN</Text>
+            </TouchableOpacity>
 </View>
             )
     }

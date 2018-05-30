@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {RadioGroup, RadioButton} from 'react-native-flexi-radio-button';
 import {
+  KeyboardAvoidingView,
   Platform,
   StyleSheet,
   TouchableOpacity,
@@ -54,10 +55,10 @@ export default class RegistrationForm extends Component {
 
   render() {
     return (
-      <View style={styles.register}>
+      <KeyboardAvoidingView behavior="padding"  style={styles.register}>
         <Text style={styles.header}>Registration</Text>
         <TextInput style={styles.textinput} placeholder='Your name' underlinedColorAndroid={'transparent'} onChangeText={name => this.setState({name})}/>
-        <TextInput style={styles.textinput} placeholder='Your email' underlinedColorAndroid={'transparent'} onChangeText={email => this.setState({email})}/>
+        <TextInput keyboardType="email-address" style={styles.textinput} placeholder='Your email' underlinedColorAndroid={'transparent'} onChangeText={email => this.setState({email})}/>
         <RadioGroup onSelect = {(index, value) => this.onSelect(index, value)}>
           <RadioButton value={'veg'} >
             <Text>Veg</Text>
@@ -73,7 +74,7 @@ export default class RegistrationForm extends Component {
              <Text  style={styles.buttonText}>Sign up</Text>
         </TouchableOpacity> 
         
-      </View>
+      </KeyboardAvoidingView>
     );
   }
 }
