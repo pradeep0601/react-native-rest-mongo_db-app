@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Alert, View, Text, TextInput, TouchableOpacity,StyleSheet} from 'react-native';
+import { Alert, View, Text, TextInput, TouchableOpacity,StyleSheet, TouchableHighlight} from 'react-native';
 
 export default class Login extends Component {
 
@@ -16,8 +16,13 @@ export default class Login extends Component {
 
     Alert.alert('Credentials', `${username} + ${password}`);
    }
+   static navigationOptions = {
+    title: 'Welcome to Login',
+    tabBarLabel: 'Login Page',
+  }
 
     render() {
+        const { navigate } = this.props.navigation;
         return (
             <View style={styles.container}>
             <TextInput style = {styles.input}
@@ -43,7 +48,10 @@ export default class Login extends Component {
             <TouchableOpacity onPress={this.onLogin.bind(this)} style={styles.buttonContainer}>
                 <Text  style={styles.buttonText}>LOGIN</Text>
             </TouchableOpacity>
-</View>
+            <TouchableOpacity onPress={() => navigate('RegistrationScreen')} style={[styles.buttonContainer,{backgroundColor: '#7567B1'}]}>
+                <Text  style={styles.buttonText}>Register</Text>
+            </TouchableOpacity>
+       </View>
             )
     }
 }

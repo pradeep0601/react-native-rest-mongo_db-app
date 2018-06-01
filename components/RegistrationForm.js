@@ -8,7 +8,8 @@ import {
   TextInput,
   Button,
   Text,
-  View
+  View,
+  TouchableHighlight
 } from 'react-native';
 import moment from 'moment';
 import UserService from '../android/services/user-service';
@@ -52,8 +53,12 @@ export default class RegistrationForm extends Component {
     })
     console.log(this.state.isvegan);
   }
-
+  static navigationOptions = {
+    title: 'Welcome to Registration',
+    tabBarLabel: 'RegistrationScreen'
+  }
   render() {
+    const { navigate } = this.props.navigation;
     return (
       <KeyboardAvoidingView behavior="padding"  style={styles.register}>
         <Text style={styles.header}>Registration</Text>
@@ -73,7 +78,9 @@ export default class RegistrationForm extends Component {
         <TouchableOpacity style={styles.buttonContainer} onPress={this.onSignUpPress.bind(this)}>
              <Text  style={styles.buttonText}>Sign up</Text>
         </TouchableOpacity> 
-        
+        <TouchableOpacity onPress={() => navigate('LoginScreen')} style={[styles.buttonContainer,{backgroundColor: '#7567B1'}]}>
+                <Text  style={styles.buttonText}>Login</Text>
+        </TouchableOpacity>
       </KeyboardAvoidingView>
     );
   }

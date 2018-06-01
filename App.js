@@ -18,14 +18,18 @@ import {
 
 import RegistrationForm from './components/RegistrationForm'
 import Login from './components/Login'
+import AppTabNavigator from './components/navigator/AppTabNavigator'
 
 export default class App extends Component {
+  static navigationOptions = {
+    title: "Welcome"
+  }
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.formContainer}>
-          <Login />
-        </View>
+        {/* <View style={styles.formContainer}> */}
+          <AppTabNavigator/>
+        {/* </View> */}
       </View>
     );
   }
